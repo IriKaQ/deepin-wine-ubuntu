@@ -1,12 +1,14 @@
-# Deepin wine for Ubuntu
+# Deepin wine for Ubuntu and Debian
 
 ## 一、项目介绍
 
-> Deepin-wine 环境的 Ubuntu 移植版 
+> Deepin-wine 环境的 Ubuntu/Debian 移植版 
 
 > 使用deepin原版二进制文件，解决依赖问题
 
 > 仅供个人研究学习使用
+
+> 刚刚适配debian，可能在安装或运行上还存在问题,欢迎反馈！
 
 ## 二、软件架构
 
@@ -33,6 +35,9 @@ wget -qO- https://raw.githubusercontent.com/wszqkzqk/deepin-wine-ubuntu/master/o
 
     KDE或其他按照普通安装方式安装后运行出现X错误的桌面环境执行 `./KDE-install.sh`  ）。
 
+* Debian9（amd64）下的安装方式：
+  解压或git clone项目后切换到文件目录，在终端中以root用户权限运行（授予可执行权限后）： `./Debian9-install.sh`
+  若一路无提示错误信息，则安装通过。命令方式启动千牛工作台 /opt/deepinwine/apps/Deepin-QianNiu/run.sh（或通过debian的系统菜单里找到 千牛工作台 运行） 
 
 
 ### （2）使用说明
@@ -50,6 +55,7 @@ wget -qO- https://raw.githubusercontent.com/wszqkzqk/deepin-wine-ubuntu/master/o
 7. [360压缩](https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.cn.360.yasuo/)
 8. [WinRAR](https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.cn.com.winrar/)
 9. [迅雷极速版](https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.thunderspeed/)
+10. [千牛卖家工作台](https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.taobao.aliclient.qianniu/)
 
 其它deepin-wine容器：[阿里云镜像下载](https://mirrors.aliyun.com/deepin/pool/non-free/d/)
 
@@ -88,7 +94,10 @@ WINEPREFIX=~/.deepinwine/Deepin-TIM deepin-wine "c:\\install_flash_player_ppapi.
 ### （5）手动更改配置（winecfg）
 执行 `WINEPREFIX=~/.deepinwine/容器名称 deepin-wine winecfg` 即可，也可以用此方法来调整缩放问题
 
-### （6）卸载方法
+### （6）解决系统非中文语言环境时软件无法设置为中文
+在/opt/deepinwine/tools/run.sh 中添加LC_ALL="zh_CN.UTF-8" 即可
+
+### （7）卸载方法
 
 * 执行uninstall.sh即可
 
